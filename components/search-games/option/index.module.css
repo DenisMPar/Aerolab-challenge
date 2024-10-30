@@ -1,0 +1,18 @@
+.option__container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  height: 42px;
+  width: 100%;
+  max-width: 342px;
+}
+.option__image {
+  border-radius: 4px;
+}
+.text {
+  font-family: inherit;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
