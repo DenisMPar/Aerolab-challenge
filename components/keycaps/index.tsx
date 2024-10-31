@@ -12,10 +12,10 @@ export function Keycaps() {
           fov: 60,
         }}
       >
-        <ambientLight intensity={4} />
-        <directionalLight position={[0, 3, 0]} color="#fd69f6" intensity={3} />
-        <directionalLight position={[-3, 3, 0]} color="#fd69f6" intensity={3} />
-        <directionalLight position={[3, 3, 0]} color="#fd69f6" intensity={3} />
+        <ambientLight intensity={3} />
+        <directionalLight position={[0, 3, 0]} color="#ff00ae" intensity={4} />
+        <directionalLight position={[-3, 3, 0]} color="#ff00ae" intensity={4} />
+        <directionalLight position={[3, 3, 0]} color="#ff00ae" intensity={4} />
         <directionalLight position={[0, 0, 3]} color="#f8e2f7" intensity={1} />
         <Physics>
           <CuboidCollider args={[3.9, 3, 0.3]} position={[0, 2, 0]} />
