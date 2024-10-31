@@ -54,6 +54,7 @@ export function SearchInput({
       }}
       sx={{
         "& .MuiInputBase-root": {
+          backgroundColor: "var(--gray-0)",
           borderRadius: isFocused ? "20px 20px 0 0" : "20px",
           height: "40px",
           border: "1px solid var(--pink-50)",

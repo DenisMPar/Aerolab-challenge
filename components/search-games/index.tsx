@@ -25,6 +25,7 @@ export function SearchGames() {
   const fetcher = React.useMemo(
     () =>
       debounce(async (input: string) => {
+        if (!input) return;
         setLoading(true);
         try {
           const res = await fetchApiGet(`/gameasd?query=${input}`);
