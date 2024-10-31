@@ -1,0 +1,22 @@
+.layout__header {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 54px;
+}
+.layout__back_wrapper {
+  display: flex;
+  gap: 8px;
+  color: var(--violet-900);
+}
+.layout__title {
+  font-size: 16px;
+  font-weight: 600;
+  background: linear-gradient(
+    90deg,
+    var(--violet-900) 0%,
+    var(--violet-600) 100%
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+}
