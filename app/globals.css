@@ -10,6 +10,8 @@ body {
     var(--gray-0) 253px
   );
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   padding: 32px 16px;
 }
 
