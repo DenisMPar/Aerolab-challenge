@@ -1,0 +1,15 @@
+.sort_games__root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  position: sticky;
+  top: 20px;
+  padding: 4px;
+}
+.sticky {
+  background: #ffffffba;
+  backdrop-filter: blur(10px);
+  border-radius: 100px;
+  margin: 0 auto;
+}

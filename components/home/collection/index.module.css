@@ -1,0 +1,10 @@
+.games_collection__root {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.games_collection__cards_container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
