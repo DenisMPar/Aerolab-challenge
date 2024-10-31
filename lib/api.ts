@@ -13,12 +13,14 @@ export async function fetchApiGet(path: RequestInfo) {
 
 export interface GameDetail {
   id: number;
+  name: string;
+  rating?: number;
+  first_release_date: number;
+  slug: string;
   cover?: {
     id: number;
     url: string;
   };
-  rating?: number;
-  first_release_date: number;
   genres: {
     id: number;
     name: string;
@@ -30,7 +32,6 @@ export interface GameDetail {
       name: string;
     };
   }[];
-  name: string;
   platforms: {
     id: number;
     name: string;
@@ -41,6 +42,8 @@ export interface GameDetail {
   }[];
   similar_games: {
     id: number;
+    slug: string;
+    name: string;
     cover: {
       id: number;
       url: string;
@@ -52,7 +55,7 @@ export interface GameDetail {
 export async function getGameDetails(slug: string): Promise<GameDetail | null> {
   try {
     const res = await fetchApiGet(`/game/${slug}`);
-    return res;
+    return res.data[0];
   } catch (error) {
     console.log("error on fetch :(", error);
     return null;
