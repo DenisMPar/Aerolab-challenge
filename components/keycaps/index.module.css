@@ -1,0 +1,7 @@
+.keycaps__container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 43vw;
+  height: 60px;
+}
