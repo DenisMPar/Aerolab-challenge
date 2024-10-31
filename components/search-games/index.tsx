@@ -28,7 +28,7 @@ export function SearchGames() {
         if (!input) return;
         setLoading(true);
         try {
-          const res = await fetchApiGet(`/gameasd?query=${input}`);
+          const res = await fetchApiGet(`/game?query=${input}`);
           setOptions(res || []);
         } catch (error) {
           console.log("error on fetch :(", error);
@@ -50,6 +50,7 @@ export function SearchGames() {
       getOptionLabel={(option) =>
         typeof option === "string" ? option : option.name
       }
+      filterOptions={(x) => x}
       options={options}
       popupIcon={null}
       autoComplete
