@@ -7,15 +7,3 @@ export function PrimaryButton(props: ButtonHTMLAttributes<HTMLButtonElement>) {
     </button>
   );
 }
-export function SecondaryButton(
-  props: ButtonHTMLAttributes<HTMLButtonElement>
-) {
-  return (
-    <button
-      {...props}
-      className={classes.button + " " + classes.button__secondary}
-    >
-      {props.children}
-    </button>
-  );
-}

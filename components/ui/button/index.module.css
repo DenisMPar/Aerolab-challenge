@@ -14,26 +14,14 @@
   &:hover {
     background: var(--violet-300);
   }
-}
-
-.button__secondary {
-  background: linear-gradient(
-    90deg,
-    var(--violet-900) 0%,
-    var(--violet-600) 100%
-  );
-  -webkit-background-clip: text;
-  color: transparent;
-  border: 1px solid var(--violet-600);
-
-  &:hover {
+  &:disabled {
     background: linear-gradient(
       90deg,
-      var(--violet-300) 0%,
-      var(--violet-100) 100%
+      var(--violet-900) 0%,
+      var(--violet-600) 100%
     );
     -webkit-background-clip: text;
     color: transparent;
-    border: 1px solid var(--violet-100);
+    border: 1px solid var(--violet-600);
   }
 }

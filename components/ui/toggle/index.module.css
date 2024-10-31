@@ -1,0 +1,17 @@
+.toggle_button__root {
+  height: 32px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--violet-900);
+  background: none;
+  padding: 6px 12px;
+}
+.active {
+  color: var(--gray-0);
+  background: var(--violet-900);
+}

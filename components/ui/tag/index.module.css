@@ -1,0 +1,27 @@
+.tag__root {
+  color: var(--violet-600);
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  border: solid 1px var(--violet-50);
+  gap: 5px;
+  height: 36px;
+  border-radius: 100px;
+}
+.tag__icon_container {
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tag__title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--violet-600);
+}
+.tag__text {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--violet-900);
+}
