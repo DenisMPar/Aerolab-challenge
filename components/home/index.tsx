@@ -1,10 +1,14 @@
 import { Title1 } from "../ui/typography";
 import { GamesCollection } from "./collection";
+import { SortGames } from "./collection/filter";
 import classes from "./index.module.css";
 export function HomePageComponent() {
   return (
     <main className={classes.home__root}>
-      <Title1>Saved Games</Title1>
+      <div className={classes.home__title_filter_container}>
+        <Title1>Saved Games</Title1>
+        <SortGames />
+      </div>
       <GamesCollection />
     </main>
   );

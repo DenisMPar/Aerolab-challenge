@@ -13,3 +13,6 @@
   border-radius: 100px;
   margin: 0 auto;
 }
+.empty {
+  visibility: hidden;
+}

@@ -1,5 +1,11 @@
 .home__root {
   display: flex;
   flex-direction: column;
+  gap: 28px;
+  flex-grow: 1;
+}
+.home__title_filter_container {
+  display: flex;
+  flex-direction: column;
   gap: 16px;
 }
