@@ -5,19 +5,20 @@ import classes from "./index.module.css";
 export function GameDetailTags({
   rating,
   releaseDate,
-  platform,
+  genre,
 }: {
-  rating: number;
+  rating?: number;
   releaseDate: number;
-  platform: string;
+  genre: string;
 }) {
-  const formattedRating = rating.toFixed(1).toString();
+  const formattedRating = rating ? rating.toFixed(1).toString() : "-";
   const formattedDate = timeStamptUnixToDate(releaseDate);
+
   return (
     <div className={classes.tags__root}>
       <Tag icon={<Star />} title="Rating:" text={formattedRating} />
       <Tag icon={<Calendar />} title="Release Date:" text={formattedDate} />
-      <Tag icon={<Puzzle />} title="Platform:" text={platform} />
+      <Tag icon={<Puzzle />} title="Genre:" text={genre} />
     </div>
   );
 }

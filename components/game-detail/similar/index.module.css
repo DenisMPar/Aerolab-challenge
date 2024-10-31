@@ -1,0 +1,21 @@
+.game_detail_similar__root {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.game_detail_similar__cards_container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.game_detail_similar__title {
+  font-size: 16px;
+  font-weight: 600;
+  background: linear-gradient(
+    90deg,
+    var(--violet-900) 0%,
+    var(--violet-600) 100%
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+}

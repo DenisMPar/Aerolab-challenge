@@ -1,0 +1,12 @@
+.game_detail_media__root {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.game_detail_media__container {
+  width: 83px;
+  height: 83px;
+}
+.game_detail_media__image {
+  border-radius: 8px;
+}
