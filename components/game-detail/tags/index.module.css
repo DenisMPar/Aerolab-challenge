@@ -1,0 +1,6 @@
+.tags__root {
+  display: flex;
+  gap: 8px;
+  width: 100%;
+  flex-wrap: wrap;
+}
