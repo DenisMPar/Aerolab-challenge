@@ -10,16 +10,17 @@ interface Props {
   gameName: string;
 }
 export function GameCard({ gameDetailUrl, imageUrl, gameName }: Props) {
+  const bigCoverUrl = imageUrl?.replace("t_thumb", "t_cover_big");
   return (
     <Card>
       <Link href={gameDetailUrl}>
-        {imageUrl ? (
+        {bigCoverUrl ? (
           <Image
             className={classes.game_card__image}
-            src={imageUrl}
+            src={bigCoverUrl}
             alt="game"
-            width={114}
-            height={152}
+            width={264}
+            height={374}
           />
         ) : (
           <div>
