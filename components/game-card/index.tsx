@@ -8,16 +8,18 @@ interface Props {
   imageUrl?: string;
   gameName: string;
   priority: boolean;
+  index?: number;
 }
 export function GameCard({
   gameDetailUrl,
   imageUrl,
   gameName,
   priority,
+  index,
 }: Props) {
   const bigCoverUrl = imageUrl?.replace("t_thumb", "t_cover_big");
   return (
-    <Card>
+    <Card index={index}>
       <Link href={gameDetailUrl}>
         {bigCoverUrl ? (
           <Image

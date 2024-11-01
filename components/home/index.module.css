@@ -5,13 +5,10 @@
   flex-grow: 1;
 }
 .home__title_filter_container {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
   width: 100%;
   max-width: 255px;
-  margin: 0 auto;
   @media screen and (min-width: 768px) {
     text-align: center;
+    margin: 0 auto;
   }
 }

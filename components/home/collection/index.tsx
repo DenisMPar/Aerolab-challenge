@@ -4,6 +4,7 @@ import { useGameCollectionStore } from "@/lib/state";
 import { EmptyCollectionComponent } from "./empty";
 import classes from "./index.module.css";
 import { HydratingCollectionComponent } from "./hydrating";
+import { SortGames } from "./filter";
 
 export function GamesCollection() {
   const collection = useGameCollectionStore((state) => state.collection);
@@ -21,15 +22,19 @@ export function GamesCollection() {
       )}
       {hydrated && collectionHasGames ? (
         <div className={classes.games_collection__root}>
+          <SortGames />
           <div className={classes.games_collection__cards_container}>
             {collection.map((game, index) => (
-              <GameCard
-                key={game.id}
-                gameDetailUrl={`/game/${game.slug}`}
-                imageUrl={game.cover ? `https:${game.cover.url}` : undefined}
-                gameName={game.name}
-                priority={index < 6}
-              />
+              <>
+                <GameCard
+                  index={index}
+                  key={game.id}
+                  gameDetailUrl={`/game/${game.slug}`}
+                  imageUrl={game.cover ? `https:${game.cover.url}` : undefined}
+                  gameName={game.name}
+                  priority={index < 6}
+                />
+              </>
             ))}
           </div>
         </div>

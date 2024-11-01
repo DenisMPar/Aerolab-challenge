@@ -1,13 +1,23 @@
 .sort_games__root {
+  position: sticky;
+  top: 20px;
+  width: 100%;
+  max-width: 728px;
+  margin: 0 auto;
+}
+.sort_games__background {
+  width: fit-content;
   display: flex;
   align-items: center;
   justify-content: center;
   width: fit-content;
-  position: sticky;
-  top: 20px;
   padding: 4px;
+  @media screen and (min-width: 768px) {
+    margin: 0 auto;
+  }
 }
 .sticky {
+  top: 20px;
   background: #ffffffba;
   backdrop-filter: blur(10px);
   border-radius: 100px;

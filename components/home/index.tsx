@@ -7,7 +7,6 @@ export function HomePageComponent() {
     <main className={classes.home__root}>
       <div className={classes.home__title_filter_container}>
         <Title1>Saved Games</Title1>
-        <SortGames />
       </div>
       <GamesCollection />
     </main>
