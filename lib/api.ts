@@ -1,5 +1,11 @@
+const development = process.env.NODE_ENV === "development";
+const BASE_API_URL = development
+  ? "http://localhost:3000/api"
+  : process.env.NEXT_PUBLIC_BASE_API_URL;
 export async function fetchApiGet(path: RequestInfo) {
-  const BASE_API_URL = "http://localhost:3000/api";
+  if (!BASE_API_URL) {
+    throw new Error("Missing BASE_API_URL");
+  }
   const url = BASE_API_URL + path;
 
   const res = await fetch(url, {
