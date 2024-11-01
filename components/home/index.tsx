@@ -1,6 +1,5 @@
 import { Title1 } from "../ui/typography";
 import { GamesCollection } from "./collection";
-import { SortGames } from "./collection/filter";
 import classes from "./index.module.css";
 export function HomePageComponent() {
   return (

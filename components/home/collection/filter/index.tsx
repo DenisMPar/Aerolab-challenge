@@ -1,11 +1,10 @@
 "use client";
 
 import { ToggleButton } from "@/components/ui/toggle";
-import { useEffect, useRef, useState } from "react";
-import classes from "./index.module.css";
 import { useGameCollectionStore } from "@/lib/state";
 import { Skeleton } from "@mui/material";
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import classes from "./index.module.css";
 export function SortGames() {
   const collection = useGameCollectionStore((state) => state.collection);
   const hydratated = useGameCollectionStore((state) => state.hydrated);
