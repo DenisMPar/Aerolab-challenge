@@ -22,6 +22,7 @@ export function SimilarGames({ similarGames }: Props) {
             if (index > 5) return null;
             return (
               <GameCard
+                index={index}
                 key={game.id}
                 gameDetailUrl={`/game/${game.slug}`}
                 imageUrl={game.cover ? `https:${game.cover.url}` : undefined}
