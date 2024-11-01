@@ -22,12 +22,13 @@ export function GamesCollection() {
       {hydrated && collectionHasGames ? (
         <div className={classes.games_collection__root}>
           <div className={classes.games_collection__cards_container}>
-            {collection.map((game) => (
+            {collection.map((game, index) => (
               <GameCard
                 key={game.id}
                 gameDetailUrl={`/game/${game.slug}`}
                 imageUrl={game.cover ? `https:${game.cover.url}` : undefined}
                 gameName={game.name}
+                priority={index < 6}
               />
             ))}
           </div>

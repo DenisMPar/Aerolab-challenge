@@ -3,6 +3,13 @@ import { Title1 } from "@/components/ui/typography";
 import classes from "./layout.module.css";
 import { SearchGames } from "@/components/search-games";
 import { Keycaps } from "@/components/keycaps";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Game Haven Z",
+  description: "Search and collect your favourite games",
+};
+
 export default function HomeLayout({
   children,
 }: {
