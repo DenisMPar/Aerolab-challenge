@@ -6,6 +6,7 @@ import * as React from "react";
 import { SearchInput } from "./input";
 import { SearchGamesOption } from "./option";
 import { SearchGamesPopper } from "./popper";
+import { useToast } from "@/hooks/use-toast";
 
 interface GameType {
   id: number;
@@ -21,6 +22,7 @@ export function SearchGames() {
   const [inputValue, setInputValue] = React.useState("");
   const [isLoading, setLoading] = React.useState(false);
   const [options, setOptions] = React.useState<readonly GameType[]>([]);
+  const { toast } = useToast();
 
   const fetcher = React.useMemo(
     () =>
@@ -32,6 +34,11 @@ export function SearchGames() {
           setOptions(res || []);
         } catch (error) {
           console.log("error on fetch :(", error);
+          toast({
+            title: "Error on search",
+            description: "An error occurred while searching for games.",
+            variant: "destructive",
+          });
         } finally {
           setLoading(false);
         }
