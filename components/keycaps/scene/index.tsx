@@ -1,4 +1,4 @@
-import { useResizeDetection } from "@/components/hooks";
+import { useResizeDetection } from "@/hooks";
 import { useThree } from "@react-three/fiber";
 import { Physics } from "@react-three/rapier";
 import { useEffect } from "react";
