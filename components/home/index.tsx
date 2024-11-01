@@ -6,7 +6,6 @@ import classes from "./index.module.css";
 export function HomePageComponent() {
   return (
     <main className={classes.home__root}>
-      <Keycaps />
       <div className={classes.home__title_filter_container}>
         <Title1>Saved Games</Title1>
         <SortGames />

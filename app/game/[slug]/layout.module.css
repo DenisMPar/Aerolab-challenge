@@ -3,11 +3,25 @@
   flex-direction: column;
   gap: 20px;
   margin-bottom: 54px;
+  max-width: 360px;
+  width: 100%;
+  margin: 0 auto;
+  @media screen and (min-width: 768px) {
+    position: relative;
+    max-width: 728px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
 }
 .layout__back_wrapper {
   display: flex;
   gap: 8px;
   color: var(--violet-900);
+  @media screen and (min-width: 768px) {
+    position: absolute;
+    left: 0;
+  }
 }
 .layout__title {
   font-size: 16px;

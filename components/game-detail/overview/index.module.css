@@ -18,4 +18,20 @@
   height: 110px;
   object-fit: fill;
   border-radius: 8px;
+  @media screen and (min-width: 768px) {
+    width: 170px;
+    height: 226px;
+  }
+}
+.collect_button__container_desktop {
+  display: none;
+  @media screen and (min-width: 768px) {
+    max-width: 150px;
+    display: block;
+  }
+}
+.collect_button__container_mobile {
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
 }

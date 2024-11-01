@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useGLTF } from "@react-three/drei";
-import { GroupProps } from "@react-three/fiber";
+import { GroupProps, useThree } from "@react-three/fiber";
 import { RapierRigidBody, RigidBody } from "@react-three/rapier";
 import { useRef } from "react";
 import { degToRad } from "three/src/math/MathUtils.js";
@@ -18,13 +18,14 @@ const modelDictionary = {
 export function KeyModel({ variant, ...props }: KeyProps) {
   const { nodes, materials }: any = useGLTF(modelDictionary[variant]);
   const keyRef = useRef<RapierRigidBody | null>(null);
+  const { viewport } = useThree();
+  const isMobile = window.innerWidth < 768;
+  const responsiveRatio = viewport.width / 18;
   function addImpulse() {
     if (keyRef.current) {
       const randomNumber = Math.round(Math.random());
-
       const applyImpulseOnX = randomNumber === 1 ? 0.5 : -0.5;
       const appliTorqueOnX = randomNumber === 1 ? -0.1 : 0.1;
-
       keyRef.current.applyImpulse({ x: applyImpulseOnX, y: 1.5, z: 0 }, true);
       keyRef.current.applyTorqueImpulse(
         { x: 0, y: 0, z: appliTorqueOnX },
@@ -38,9 +39,23 @@ export function KeyModel({ variant, ...props }: KeyProps) {
       {...props}
       dispose={null}
       rotation={[degToRad(90), degToRad(145), 0]}
-      scale={0.6}
+      scale={
+        isMobile
+          ? 0.6
+          : [
+              0.6 * responsiveRatio,
+              0.6 * responsiveRatio,
+              0.6 * responsiveRatio,
+            ]
+      }
     >
-      <RigidBody ref={keyRef} type="dynamic" colliders="hull" restitution={0.3}>
+      <RigidBody
+        ref={keyRef}
+        type="dynamic"
+        colliders="hull"
+        restitution={0.3}
+        gravityScale={isMobile ? 1 : 2}
+      >
         <mesh geometry={nodes.Cube.geometry} material={materials.Material} />
       </RigidBody>
     </group>
