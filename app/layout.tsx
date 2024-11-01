@@ -1,7 +1,6 @@
-import type { Metadata } from "next";
 import { Inter } from "@next/font/google";
+import type { Metadata } from "next";
 import "./globals.css";
-import { Keycaps } from "@/components/keycaps";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -33,10 +32,7 @@ export default function RootLayout({
           href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
         />
       </head>
-      <body className={`${inter.className} antialiased`}>
-        <Keycaps />
-        {children}
-      </body>
+      <body className={`${inter.className} antialiased`}>{children}</body>
     </html>
   );
 }
