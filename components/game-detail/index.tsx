@@ -1,13 +1,16 @@
-import { getGameDetails } from "@/lib/api";
+import { GameDetail } from "@/lib/api";
 import classes from "./index.module.css";
 import { GameDetailMedia } from "./media";
+import { GameDetailNotFound } from "./not-found";
 import { GameOverview } from "./overview";
 import { SimilarGames } from "./similar";
 import { GameDetailTags } from "./tags";
 import { GameDetailTexts } from "./texts";
-export async function GameDetailPageComponent({ slug }: { slug: string }) {
-  const gameData = await getGameDetails(slug);
-
+export async function GameDetailPageComponent({
+  gameData,
+}: {
+  gameData: GameDetail | null;
+}) {
   return (
     <section className={classes.game_detail__root}>
       {gameData && (
@@ -26,9 +29,7 @@ export async function GameDetailPageComponent({ slug }: { slug: string }) {
           <SimilarGames similarGames={gameData.similar_games} />
         </>
       )}
-      {!gameData && (
-        <div className={classes.game_detail__error}>{"Game not found :("}</div>
-      )}
+      {!gameData && <GameDetailNotFound />}
     </section>
   );
 }

@@ -10,8 +10,6 @@ interface Props {
   }[];
 }
 export function GameDetailMedia({ screenshots }: Props) {
-  console.log(screenshots[0].url);
-
   return (
     <div className={classes.game_detail_media__root}>
       <Title2>Media</Title2>

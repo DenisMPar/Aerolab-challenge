@@ -5,4 +5,5 @@
   max-width: 728px;
   width: 100%;
   margin: 0 auto;
+  flex-grow: 1;
 }
