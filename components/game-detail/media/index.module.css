@@ -4,9 +4,17 @@
   gap: 8px;
 }
 .game_detail_media__container {
-  width: 83px;
-  height: 83px;
+  position: relative;
+  width: 80px !important;
+  height: 80px !important;
+  border-radius: 8px;
+  overflow: hidden;
+  @media screen and (min-width: 768px) {
+    width: 132px !important;
+    height: 132px !important;
+  }
 }
 .game_detail_media__image {
-  border-radius: 8px;
+  width: 132px;
+  height: 132px;
 }

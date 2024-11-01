@@ -1,35 +1,21 @@
-"use client";
 import { Title1, Title3 } from "@/components/ui/typography";
-import Image from "next/image";
-import classes from "./index.module.css";
-import { PrimaryButton } from "@/components/ui/button";
 import { GameDetail } from "@/lib/api";
-import { useGameCollectionStore } from "@/lib/state";
 import { ImageOff } from "lucide-react";
+import Image from "next/image";
+import { CollectButton } from "./collect-button";
+import classes from "./index.module.css";
 
 export function GameOverview({ gameData }: { gameData: GameDetail }) {
-  const collection = useGameCollectionStore((state) => state.collection);
-  const addGame = useGameCollectionStore((state) => state.addGame);
-  const isCollected = collection.some((game) => game.id === gameData.id);
-  function handleAddGame() {
-    const gameDataToStore = {
-      id: gameData.id,
-      cover: gameData.cover,
-      name: gameData.name,
-      slug: gameData.slug,
-      releaseDate: gameData.first_release_date,
-      savedAt: Date.now(),
-    };
-    addGame(gameDataToStore);
-  }
+  const bigCoverUrl = gameData.cover?.url?.replace("t_thumb", "t_cover_big");
+
   return (
     <div className={classes.game_overview__root}>
       <div className={classes.game_overview__header}>
         {gameData.cover ? (
           <Image
-            src={`https:${gameData.cover.url}`}
-            width={82}
-            height={110}
+            src={`https:${bigCoverUrl}`}
+            width={264}
+            height={374}
             alt="game cover"
             className={classes.game_overview__image}
             priority
@@ -43,12 +29,19 @@ export function GameOverview({ gameData }: { gameData: GameDetail }) {
         )}
         <div className={classes.game_overview__text_container}>
           <Title1>{gameData.name}</Title1>
-          <Title3>{gameData.involved_companies[0]?.company.name}</Title3>
+          <Title3>
+            {gameData.involved_companies
+              ? gameData.involved_companies[0]?.company.name
+              : "-"}
+          </Title3>
+          <div className={classes.collect_button__container_desktop}>
+            <CollectButton gameData={gameData} />
+          </div>
         </div>
       </div>
-      <PrimaryButton disabled={isCollected} onClick={handleAddGame}>
-        {isCollected ? "Game collected" : "Collect Game"}
-      </PrimaryButton>
+      <div className={classes.collect_button__container_mobile}>
+        <CollectButton gameData={gameData} />
+      </div>
     </div>
   );
 }

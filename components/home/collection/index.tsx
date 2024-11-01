@@ -3,14 +3,23 @@ import { GameCard } from "@/components/game-card";
 import { useGameCollectionStore } from "@/lib/state";
 import { EmptyCollectionComponent } from "./empty";
 import classes from "./index.module.css";
+import { HydratingCollectionComponent } from "./hydrating";
 
 export function GamesCollection() {
   const collection = useGameCollectionStore((state) => state.collection);
   const collectionHasGames = collection.length > 0;
+  const hydrated = useGameCollectionStore((state) => state.hydrated);
 
   return (
     <>
-      {collectionHasGames ? (
+      {!hydrated && (
+        <div className={classes.games_collection__root}>
+          <div className={classes.games_collection__cards_container}>
+            <HydratingCollectionComponent />
+          </div>
+        </div>
+      )}
+      {hydrated && collectionHasGames ? (
         <div className={classes.games_collection__root}>
           <div className={classes.games_collection__cards_container}>
             {collection.map((game) => (
@@ -24,7 +33,7 @@ export function GamesCollection() {
           </div>
         </div>
       ) : (
-        <EmptyCollectionComponent />
+        hydrated && <EmptyCollectionComponent />
       )}
     </>
   );

@@ -10,6 +10,8 @@ interface Props {
   }[];
 }
 export function GameDetailMedia({ screenshots }: Props) {
+  console.log(screenshots[0].url);
+
   return (
     <div className={classes.game_detail_media__root}>
       <Title2>Media</Title2>
@@ -21,10 +23,10 @@ export function GameDetailMedia({ screenshots }: Props) {
           >
             <Image
               className={classes.game_detail_media__image}
-              width={83}
-              height={83}
-              src={`https:${screenshot.url}`}
+              fill
+              src={`https:${screenshot.url.replace("t_thumb", "t_logo_med")}`}
               alt="game screenshot"
+              sizes="(max-width: 768px) 20vw, 30vw"
             />
           </div>
         ))}

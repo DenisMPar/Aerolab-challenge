@@ -4,8 +4,10 @@ import { ToggleButton } from "@/components/ui/toggle";
 import { useEffect, useRef, useState } from "react";
 import classes from "./index.module.css";
 import { useGameCollectionStore } from "@/lib/state";
+import { Skeleton } from "@mui/material";
 export function SortGames() {
   const collection = useGameCollectionStore((state) => state.collection);
+  const hydratated = useGameCollectionStore((state) => state.hydrated);
   const sortByLastAdded = useGameCollectionStore(
     (state) => state.sortByLastAdded
   );
@@ -17,6 +19,8 @@ export function SortGames() {
   const [selected, setSelected] = useState<"lastAdded" | "newest" | "oldest">(
     "lastAdded"
   );
+  const collectionIsLoading = hydratated === false;
+  const collectionIsEmpty = collection.length === 0 && !collectionIsLoading;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,27 +48,34 @@ export function SortGames() {
     <div
       ref={filterRef}
       className={`${classes.sort_games__root} ${isSticky && classes.sticky} ${
-        collection.length === 0 && classes.empty
+        collectionIsEmpty && classes.empty
       }`}
     >
-      <ToggleButton
-        active={selected === "lastAdded"}
-        onClick={() => handleFilterClick("lastAdded")}
-      >
-        Last added
-      </ToggleButton>
-      <ToggleButton
-        active={selected === "newest"}
-        onClick={() => handleFilterClick("newest")}
-      >
-        Newest
-      </ToggleButton>
-      <ToggleButton
-        active={selected === "oldest"}
-        onClick={() => handleFilterClick("oldest")}
-      >
-        Oldest
-      </ToggleButton>
+      {collectionIsLoading && (
+        <Skeleton variant="rectangular" width={240} height={32} />
+      )}
+      {!collectionIsLoading && (
+        <>
+          <ToggleButton
+            active={selected === "lastAdded"}
+            onClick={() => handleFilterClick("lastAdded")}
+          >
+            Last added
+          </ToggleButton>
+          <ToggleButton
+            active={selected === "newest"}
+            onClick={() => handleFilterClick("newest")}
+          >
+            Newest
+          </ToggleButton>
+          <ToggleButton
+            active={selected === "oldest"}
+            onClick={() => handleFilterClick("oldest")}
+          >
+            Oldest
+          </ToggleButton>
+        </>
+      )}
     </div>
   );
 }

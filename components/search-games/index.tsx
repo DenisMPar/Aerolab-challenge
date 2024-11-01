@@ -35,7 +35,7 @@ export function SearchGames() {
         } finally {
           setLoading(false);
         }
-      }, 400),
+      }, 600),
     []
   );
 
