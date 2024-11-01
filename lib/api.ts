@@ -25,7 +25,7 @@ export interface GameDetail {
     id: number;
     name: string;
   }[];
-  involved_companies: {
+  involved_companies?: {
     id: number;
     company: {
       id: number;
@@ -40,7 +40,7 @@ export interface GameDetail {
     id: number;
     url: string;
   }[];
-  similar_games: {
+  similar_games?: {
     id: number;
     slug: string;
     name: string;
